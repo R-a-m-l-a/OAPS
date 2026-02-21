@@ -1,0 +1,59 @@
+---
+alwaysApply: true
+---
+
+ OAPS - Online Assessment Proctoring System
+
+## Project Nature
+Academic Final Year Project
+Runs fully on localhost.
+Single professional dashboard interface.
+
+## Core Architecture Rules
+
+- Next.js 16 App Router
+- TypeScript everywhere
+- No database
+- In-memory session store
+- Modular AI architecture
+- Strict separation of concerns
+
+## AI Performance Rules
+
+- Use TensorFlow.js WebGL backend
+- Lazy-load models
+- Process every 2nd frame
+- Maintain >= 24 FPS
+- Confidence threshold >= 0.65
+- Handle model load failures gracefully
+
+## Logging Rules
+
+- All events timestamped
+- Categorize:
+  - gaze
+  - screen
+  - object
+- Never store raw video
+- Summarize before report
+
+## Dashboard Rules
+
+- Blue Elegant theme
+- Animated real-time metrics
+- Color-coded alerts
+- Clean academic UI
+
+## Gemini Rules
+
+- Trigger manually via button
+- Send only summarized metrics
+- Never send raw event stream
+- Handle API failure gracefully
+
+## Error Handling
+
+- Webcam permission denial fallback
+- Model loading spinner
+- Fail-safe monitoring stop
+- Session reset capability
