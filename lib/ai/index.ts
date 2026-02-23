@@ -1,1 +1,13 @@
-// TODO: Re-export AI engines (gaze-tracker, object-detector)
+export {
+    loadGazeModel,
+    runGazeInference,
+    isGazeModelReady,
+    disposeGazeModel,
+} from "./gaze-tracker";
+
+export {
+    loadObjectModel,
+    runObjectDetection,
+    isObjectModelReady,
+    disposeObjectModel,
+} from "./object-detector";

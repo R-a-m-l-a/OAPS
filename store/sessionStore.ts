@@ -21,6 +21,8 @@ type SessionActions = {
   endSession: () => void;
   resetSession: () => void;
   addEvent: (event: SessionEvent) => void;
+  /** Update the live risk score (0–100). Called by useMonitoring. */
+  setRiskScore: (score: number) => void;
 };
 
 export type SessionStore = SessionState & SessionActions;
@@ -61,5 +63,9 @@ export const useSessionStore = create<SessionStore>((set) => ({
     set((state) => ({
       events: [...state.events, event],
     }));
+  },
+
+  setRiskScore: (score) => {
+    set({ riskScore: Math.min(100, Math.max(0, Math.round(score))) });
   },
 }));

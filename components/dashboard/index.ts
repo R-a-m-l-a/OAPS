@@ -1,4 +1,5 @@
-export * from "./DashboardLayout";
-export * from "./MetricsPanel";
-export * from "./RiskIndicator";
-export * from "./LiveFeedPanel";
+export { DashboardLayout } from "./DashboardLayout";
+export { LiveFeedPanel } from "./LiveFeedPanel";
+export { MetricsPanel } from "./MetricsPanel";
+export { RiskIndicator } from "./RiskIndicator";
+export { AIAnalysisPanel } from "./AIAnalysisPanel";
