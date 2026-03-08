@@ -6,6 +6,7 @@
  * Refined metric tiles with Elegant Blue accents and smooth transitions.
  */
 
+import React from "react";
 import { Card } from "@/components/ui/Card";
 
 type Props = {
@@ -36,17 +37,17 @@ function MetTile({ label, value, accent = "normal" }: MetTileProps) {
 
   return (
     <div
-      className={`rounded-xl border p-3 transition-all duration-200 ${accentMap[accent]}`}
+      className={`rounded-2xl border p-3.5 transition-all duration-200 ${accentMap[accent]}`}
     >
-      <div className="text-[10px] font-medium uppercase tracking-wider text-slate-400">
+      <div className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
         {label}
       </div>
-      <div className="mt-1 text-sm font-bold tabular-nums">{value}</div>
+      <div className="mt-1.5 text-sm font-bold tabular-nums">{value}</div>
     </div>
   );
 }
 
-export function MetricsPanel({
+export const MetricsPanel = React.memo(function MetricsPanel({
   isSessionActive,
   totalEvents,
   gazeAlerts,
@@ -66,7 +67,7 @@ export function MetricsPanel({
 
   return (
     <Card title="Session Metrics" subtitle="Real-time monitoring state" className="h-full">
-      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-8">
+      <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-4 xl:grid-cols-8">
         <MetTile
           label="Status"
           value={isSessionActive ? "Active" : "Inactive"}
@@ -98,11 +99,11 @@ export function MetricsPanel({
       </div>
 
       {/* Risk bar */}
-      <div className="mt-4 flex items-center gap-3">
+      <div className="mt-5 flex items-center gap-3.5">
         <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">
           Risk
         </span>
-        <div className="h-2 flex-1 overflow-hidden rounded-full bg-slate-100">
+        <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-slate-100">
           <div
             className={`h-full rounded-full transition-all duration-500 ease-out ${riskAccent === "danger"
                 ? "bg-rose-500"
@@ -113,8 +114,10 @@ export function MetricsPanel({
             style={{ width: `${riskScore}%` }}
           />
         </div>
-        <MetTile label="Score" value={riskScore} accent={riskAccent} />
+        <div className="w-24">
+          <MetTile label="Score" value={riskScore} accent={riskAccent} />
+        </div>
       </div>
     </Card>
   );
-}
+});

@@ -62,7 +62,7 @@ export const LiveFeedPanel = forwardRef<HTMLVideoElement, Props>(
 
     return (
       <Card title="Live Feed" subtitle={helperText} className="h-full">
-        <div className="relative overflow-hidden rounded-lg border border-sky-100 bg-sky-50/40">
+        <div className="relative overflow-hidden rounded-2xl border border-[var(--border-accent)] bg-[var(--blue-50)]/40 shadow-inner">
           <div className="aspect-video w-full">
             <video
               ref={ref}
@@ -91,14 +91,14 @@ export const LiveFeedPanel = forwardRef<HTMLVideoElement, Props>(
 
           {!isReady && (
             <div className="absolute inset-0 flex items-center justify-center bg-white/70">
-              <div className="rounded-lg border border-sky-100 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm">
+              <div className="rounded-xl border border-[var(--border-accent)] bg-white px-4 py-2.5 text-sm text-slate-700 shadow-sm">
                 {helperText}
               </div>
             </div>
           )}
 
           {isReady && showOverlays && (
-            <div className="absolute left-2 top-2 rounded-full bg-sky-600/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
+            <div className="absolute left-3 top-3 rounded-full bg-[var(--blue-700)]/90 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
               AI Active
             </div>
           )}

@@ -6,6 +6,7 @@
  * Animated risk score display with blue accents for low risk.
  */
 
+import React from "react";
 import { Card } from "@/components/ui/Card";
 
 type Props = {
@@ -26,7 +27,7 @@ function getRiskLevel(score: number): Level {
   };
 }
 
-export function RiskIndicator({ riskScore }: Props) {
+export const RiskIndicator = React.memo(function RiskIndicator({ riskScore }: Props) {
   const clamped = Math.max(0, Math.min(100, riskScore));
   const level = getRiskLevel(clamped);
 
@@ -38,7 +39,7 @@ export function RiskIndicator({ riskScore }: Props) {
       rightSlot={
         <span
           className={[
-            "rounded-lg px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide",
+            "rounded-xl px-3 py-1 text-[11px] font-bold uppercase tracking-wide",
             "transition-colors duration-300",
             level.label === "High"
               ? "animate-pulse bg-rose-100 text-rose-700"
@@ -52,18 +53,18 @@ export function RiskIndicator({ riskScore }: Props) {
       }
     >
       {/* Score display */}
-      <div className="flex items-end justify-between gap-4">
+      <div className="flex items-end justify-between gap-5">
         <div>
           <div
-            className={`text-4xl font-bold transition-all duration-500 tabular-nums ${level.color}`}
+            className={`text-5xl font-bold leading-none transition-all duration-500 tabular-nums ${level.color}`}
           >
             {clamped}
           </div>
-          <div className="mt-1 text-xs text-slate-400">out of 100</div>
+          <div className="mt-1.5 text-xs text-slate-400">out of 100</div>
         </div>
 
         {/* Vertical bar chart */}
-        <div className="flex h-16 items-end gap-0.5">
+        <div className="flex h-20 items-end gap-0.5">
           {Array.from({ length: 10 }, (_, i) => {
             const threshold = (i + 1) * 10;
             const active = clamped >= threshold;
@@ -86,7 +87,7 @@ export function RiskIndicator({ riskScore }: Props) {
       </div>
 
       {/* Horizontal progress bar */}
-      <div className="mt-5">
+      <div className="mt-6">
         <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
           <div
             className={`h-full rounded-full transition-all duration-700 ease-out ${level.bar}`}
@@ -98,7 +99,7 @@ export function RiskIndicator({ riskScore }: Props) {
             aria-label="Risk score"
           />
         </div>
-        <div className="mt-2 flex justify-between text-[10px] font-medium text-slate-400">
+        <div className="mt-2.5 flex justify-between text-[10px] font-medium text-slate-400">
           <span>0</span>
           <span>Low ← → High</span>
           <span>100</span>
@@ -106,4 +107,4 @@ export function RiskIndicator({ riskScore }: Props) {
       </div>
     </Card>
   );
-}
+});

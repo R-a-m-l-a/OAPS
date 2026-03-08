@@ -48,9 +48,9 @@ export function Button({
     <button
       {...props}
       className={[
-        "inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium",
-        "transition-all duration-150 ease-in-out",
-        "focus:outline-none focus:ring-2 focus:ring-[var(--blue-400)]/40 focus:ring-offset-1",
+        "inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold",
+        "transition-all duration-200 ease-in-out",
+        "focus:outline-none focus:ring-4 focus:ring-[var(--blue-200)]/45 focus:ring-offset-1",
         "disabled:cursor-not-allowed",
         variantClassName[variant],
         className,

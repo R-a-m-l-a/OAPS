@@ -7,16 +7,34 @@ OAPS - Online Assessment Proctoring System
 ## Project Nature
 Academic Final Year Project
 Runs fully on localhost.
-Single professional dashboard interface.
+Single professional dashboard interface with role-based views (Interviewer / Interviewee).
 
 ## Core Architecture Rules
 
 - Next.js 16 App Router
 - TypeScript everywhere
-- No database
-- In-memory session store
+- MongoDB Atlas for user data (auth only)
+- In-memory session store (client Zustand + server-side bridge for cross-role data)
 - Modular AI architecture
 - Strict separation of concerns
+
+## Authentication
+
+- Two roles: **Interviewer** (proctor) and **Interviewee** (candidate)
+- Signup: name, email, password, role. Passwords hashed (bcrypt). Users stored in MongoDB.
+- Login / Logout: JWT in httpOnly cookie; middleware protects routes
+- Route protection: Interviewers cannot access `/interviewee`; Interviewees cannot access `/interviewer`
+
+## Multi-Role Routing
+
+- **Interviewee page** (`/interviewee`): Webcam panel, AI monitoring (TensorFlow.js), session controls. Monitoring runs only here; camera and models disposed on leave.
+- **Interviewer page** (`/interviewer`): Risk score dashboard, event logs, session analytics, Gemini AI analysis results. No webcam; data comes from server-side store (synced by interviewee).
+
+## Real-Time Data Flow
+
+- Interviewee: `useSessionSync` batches events + risk + focusRatio to `POST /api/session/events`; session status to `PUT /api/session/status`
+- Server: In-memory session store (no DB for session data)
+- Interviewer: `useInterviewerData` polls `GET /api/session/events` (~1s) and displays metrics + Gemini report button
 
 ## AI Performance Rules
 
@@ -30,10 +48,7 @@ Single professional dashboard interface.
 ## Logging Rules
 
 - All events timestamped
-- Categorize:
-  - gaze
-  - screen
-  - object
+- Categorize: gaze, screen, object
 - Never store raw video
 - Summarize before report
 
@@ -43,10 +58,13 @@ Single professional dashboard interface.
 - Animated real-time metrics
 - Color-coded alerts
 - Clean academic UI
+- Separate dashboards for Interviewer and Interviewee
+- Interviewee controls session start/end only
+- Interviewer controls session data clearing and AI report generation
 
 ## Gemini Rules
 
-- Trigger manually via button
+- Trigger manually via button (on Interviewer page only)
 - Send only summarized metrics
 - Never send raw event stream
 - Handle API failure gracefully
