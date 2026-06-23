@@ -15,9 +15,7 @@
  * @module gaze-tracker
  */
 
-import type { GazeResult, GazeVector } from "@/types/metrics";
-import {
-    MIN_FACE_CONFIDENCE,
+import type {
     MAX_YAW_NORMAL,
     MAX_PITCH_NORMAL,
     STRONG_YAW_DEG,

@@ -8,7 +8,6 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/store/authStore";
-
 export default function HomePage() {
   const router = useRouter();
   const fetchUser = useAuthStore((s) => s.fetchUser);
@@ -23,11 +22,10 @@ export default function HomePage() {
     if (!hasFetched) return;
     if (!user) {
       router.replace("/login");
-      return;
+      return; 
     }
     router.replace(user.role === "interviewer" ? "/interviewer" : "/interviewee");
   }, [hasFetched, user, router]);
-
   return (
     <div className="min-h-screen bg-[var(--background)] flex items-center justify-center">
       <div className="h-8 w-8 animate-spin rounded-full border-2 border-[var(--blue-500)] border-t-transparent" />

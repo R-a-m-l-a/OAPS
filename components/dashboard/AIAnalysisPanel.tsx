@@ -72,6 +72,8 @@ function EventRow({ event }: { event: SessionEvent }) {
     return "";
   })();
 
+
+
   return (
     <li
       className={`flex items-start gap-2 rounded-xl border px-3 py-2 text-xs transition-all duration-200 ${style}`}
@@ -113,10 +115,10 @@ export const AIAnalysisPanel = React.memo(function AIAnalysisPanel({
         : "Low Risk";
 
   return (
-    <Card
+    <Card 
       title="AI Analysis"
       subtitle="Behavioral report and flags"
-      className="flex h-full flex-col"
+      className="flex h-full flex-col  w-290 "
       rightSlot={
         <span
           className={`rounded-xl px-3 py-1 text-[10px] font-bold uppercase tracking-wider transition-colors duration-200 ${

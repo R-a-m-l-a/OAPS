@@ -61,10 +61,10 @@ export const LiveFeedPanel = forwardRef<HTMLVideoElement, Props>(
     const isReady = status === "ready";
 
     return (
-      <Card title="Live Feed" subtitle={helperText} className="h-full">
-        <div className="relative overflow-hidden rounded-2xl border border-[var(--border-accent)] bg-[var(--blue-50)]/40 shadow-inner">
-          <div className="aspect-video w-full">
-            <video
+      <Card title="Live Feed" subtitle={helperText} className="w-[1150px] h-[800px]">
+        <div className="relative overflow-hidden rounded-2xl border border-[var(--border-accent)] bg-[var(--blue-50)]/40 shadow-inner w-[1090px] h-[700px]">
+        <div className=" w-[1150px] h-[800px]">   
+                <video
               ref={ref}
               className="h-full w-full object-cover"
               autoPlay
@@ -72,7 +72,6 @@ export const LiveFeedPanel = forwardRef<HTMLVideoElement, Props>(
               muted
             />
           </div>
-
           {isReady && showOverlays && (
             <>
               <GazeOverlay
