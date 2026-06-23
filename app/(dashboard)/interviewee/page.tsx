@@ -100,20 +100,7 @@ export default function IntervieweePage() {
         </>
       }
 
-      /* metricsSlot={
-         <MetricsPanel
-           isSessionActive={isSessionActive}
-           totalEvents={events.length}
-           gazeAlerts={gazeAlerts}
-           faceAbsent={faceAbsent}
-          objectDetections={objectDetections}
-          tabSwitches={tabSwitches}
-          elapsedLabel={monitoring.elapsedLabel}
-          riskScore={riskScore}
-           focusRatio={monitoring.timeQuality.focusRatio}
-        />
-       }
-       riskSlot={<RiskIndicator riskScore={riskScore} />} */
+     
       liveFeedSlot={
         <>
           {/* Hook returns ref-backed values intentionally for real-time monitoring UI. */}
@@ -131,27 +118,7 @@ export default function IntervieweePage() {
           {/* eslint-enable react-hooks/refs */}
         </>
       }
-   /*   // aiPanelSlot={
-      //   <div className="flex h-full flex-col justify-between rounded-3xl border border-[var(--border)] bg-white p-6 shadow-[0_12px_26px_rgba(15,23,42,0.06)]">
-      //     <div>
-      //       <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-      //         Session Sync
-      //       </p>
-      //       <h3 className="mt-1 text-base font-semibold tracking-tight text-[var(--foreground)]">
-      //         Live interviewer visibility
-      //       </h3>
-      //       <p className="mt-2 text-sm text-slate-500">
-      //         Monitoring events, risk score, and session status are streamed to
-      //         the interviewer dashboard in near real time.
-      //       </p>
-      //     </div>
-      //     <div className="mt-5 rounded-2xl border border-[var(--border-accent)] bg-[var(--blue-50)]/65 p-4">
-      //       <p className="text-xs font-medium text-[var(--blue-700)]">
-      //         End the session to let the interviewer generate the Gemini report.
-      //       </p>
-      //     </div>
-      //   </div>
-       } */
+  
     />
   );
 }
