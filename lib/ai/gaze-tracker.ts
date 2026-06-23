@@ -15,7 +15,7 @@
  * @module gaze-tracker
  */
 
-import type {
+import {
     MAX_YAW_NORMAL,
     MAX_PITCH_NORMAL,
     STRONG_YAW_DEG,
