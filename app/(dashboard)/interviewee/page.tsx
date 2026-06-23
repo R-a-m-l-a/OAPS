@@ -100,20 +100,20 @@ export default function IntervieweePage() {
         </>
       }
 
-      // metricsSlot={
-      //   <MetricsPanel
-      //     isSessionActive={isSessionActive}
-      //     totalEvents={events.length}
-      //     gazeAlerts={gazeAlerts}
-      //     faceAbsent={faceAbsent}
-      //     objectDetections={objectDetections}
-      //     tabSwitches={tabSwitches}
-      //     elapsedLabel={monitoring.elapsedLabel}
-      //     riskScore={riskScore}
-      //     focusRatio={monitoring.timeQuality.focusRatio}
-      //   />
-      // }
-      // riskSlot={<RiskIndicator riskScore={riskScore} />}
+      /* metricsSlot={
+         <MetricsPanel
+           isSessionActive={isSessionActive}
+           totalEvents={events.length}
+           gazeAlerts={gazeAlerts}
+           faceAbsent={faceAbsent}
+          objectDetections={objectDetections}
+          tabSwitches={tabSwitches}
+          elapsedLabel={monitoring.elapsedLabel}
+          riskScore={riskScore}
+           focusRatio={monitoring.timeQuality.focusRatio}
+        />
+       }
+       riskSlot={<RiskIndicator riskScore={riskScore} />} */
       liveFeedSlot={
         <>
           {/* Hook returns ref-backed values intentionally for real-time monitoring UI. */}
@@ -131,7 +131,7 @@ export default function IntervieweePage() {
           {/* eslint-enable react-hooks/refs */}
         </>
       }
-      // aiPanelSlot={
+   /*   // aiPanelSlot={
       //   <div className="flex h-full flex-col justify-between rounded-3xl border border-[var(--border)] bg-white p-6 shadow-[0_12px_26px_rgba(15,23,42,0.06)]">
       //     <div>
       //       <p className="text-xs font-semibold uppercase tracking-wider text-slate-400">
@@ -151,7 +151,7 @@ export default function IntervieweePage() {
       //       </p>
       //     </div>
       //   </div>
-      // }
+       } */
     />
   );
 }
