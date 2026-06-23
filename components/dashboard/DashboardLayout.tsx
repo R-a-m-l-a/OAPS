@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 type Props = {
   headerSlot?: ReactNode;
-  metricsSlot: ReactNode;
-  riskSlot: ReactNode;
+  metricsSlot?: ReactNode;
+  riskSlot?: ReactNode;
   liveFeedSlot?: ReactNode;
   aiPanelSlot?: ReactNode;
   children?: ReactNode;
